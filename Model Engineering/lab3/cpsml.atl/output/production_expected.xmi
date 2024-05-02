@@ -1,0 +1,97 @@
+<?xml version="1.0" encoding="ISO-8859-1"?>
+<CAEX:CAEXFile xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:CAEX="http://caex" fileName="production" schemaVersion="2.15">
+  <instanceHierarchy name="production">
+    <internalElement name="ProductionFloor">
+      <internalElement name="3dPrinter">
+        <attribute name="Position" value="0.0|0.0|0.0"/>
+        <attribute name="topics" value="Set {'temp', 'production'}"/>
+        <internalElement name="HeatedPrintBed(Actuator)[C]">
+          <attribute name="type" value="actuator"/>
+          <attribute name="runs" value="0"/>
+          <attribute name="ratedRuns" value="100"/>
+          <internalElement name="setTemperature(INT::temperature)">
+            <attribute name="returns" value="NULL"/>
+          </internalElement>
+        </internalElement>
+        <internalElement name="Extrudor(Actuator)[G]">
+          <attribute name="type" value="actuator"/>
+          <attribute name="runs" value="0"/>
+          <attribute name="ratedRuns" value="100"/>
+          <internalElement name="startPrint()">
+            <attribute name="returns" value="NULL"/>
+          </internalElement>
+          <internalElement name="getRemainingPrintDuration()">
+            <attribute name="returns" value="INT"/>
+          </internalElement>
+        </internalElement>
+      </internalElement>
+      <internalElement name="Robot">
+        <attribute name="Position" value="2.0|2.0|1.0"/>
+        <attribute name="topics" value="Set {'temp', 'logistics'}"/>
+        <internalElement name="RoboticArm(Actuator)[G]">
+          <attribute name="type" value="actuator"/>
+          <attribute name="runs" value="0"/>
+          <attribute name="ratedRuns" value="100"/>
+          <internalElement name="grab(INT::strength, INT::velocity)">
+            <attribute name="returns" value="NULL"/>
+          </internalElement>
+        </internalElement>
+        <internalElement name="InternalTemperature(Sensor)[G]">
+          <attribute name="frequency" value="0.0"/>
+          <internalElement name="getTemperature()">
+            <attribute name="returns" value="INT"/>
+          </internalElement>
+        </internalElement>
+      </internalElement>
+    </internalElement>
+    <internalElement name="ServiceRoom">
+      <internalElement name="CentralClimateControl">
+        <attribute name="Position" value="5.0|5.0|0.0"/>
+        <attribute name="topics" value="Set {'temp'}"/>
+        <internalElement name="Fan(Actuator)[W]">
+          <attribute name="type" value="actuator"/>
+          <attribute name="runs" value="70"/>
+          <attribute name="ratedRuns" value="100"/>
+          <internalElement name="turnOn()">
+            <attribute name="returns" value="NULL"/>
+          </internalElement>
+          <internalElement name="turnOff()">
+            <attribute name="returns" value="NULL"/>
+          </internalElement>
+        </internalElement>
+        <internalElement name="TemperatureRegulator(Actuator)[G]">
+          <attribute name="type" value="actuator"/>
+          <attribute name="runs" value="0"/>
+          <attribute name="ratedRuns" value="1000"/>
+          <internalElement name="setTemperature(INT::temperature)">
+            <attribute name="returns" value="NULL"/>
+          </internalElement>
+        </internalElement>
+      </internalElement>
+    </internalElement>
+    <internalElement name="Warehouse">
+      <internalElement name="Scaffolding">
+        <attribute name="Position" value="8.0|8.0|-1.0"/>
+        <attribute name="topics" value="Set {'logistics'}"/>
+        <internalElement name="Scanner(Sensor)[G]">
+          <attribute name="frequency" value="0.0"/>
+          <internalElement name="getContent()">
+            <attribute name="returns" value="STRING"/>
+          </internalElement>
+        </internalElement>
+      </internalElement>
+      <internalElement name="ConveyorBelt">
+        <attribute name="Position" value="7.0|7.0|-1.0"/>
+        <attribute name="topics" value="Set {'logistics'}"/>
+        <internalElement name="Motor(Actuator)[G]">
+          <attribute name="type" value="actuator"/>
+          <attribute name="runs" value="10"/>
+          <attribute name="ratedRuns" value="10000"/>
+          <internalElement name="setSpeed(INT::speed)">
+            <attribute name="returns" value="NULL"/>
+          </internalElement>
+        </internalElement>
+      </internalElement>
+    </internalElement>
+  </instanceHierarchy>
+</CAEX:CAEXFile>

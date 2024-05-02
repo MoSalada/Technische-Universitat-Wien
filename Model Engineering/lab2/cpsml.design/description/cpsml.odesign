@@ -1,0 +1,337 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<description:Group xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:description="http://www.eclipse.org/sirius/description/1.1.0" xmlns:description_1="http://www.eclipse.org/sirius/diagram/description/1.1.0" xmlns:properties="http://www.eclipse.org/sirius/properties/1.0.0" xmlns:style="http://www.eclipse.org/sirius/diagram/description/style/1.1.0" xmlns:tool="http://www.eclipse.org/sirius/diagram/description/tool/1.1.0" xmlns:tool_1="http://www.eclipse.org/sirius/description/tool/1.1.0" name="cpsml" version="12.0.0.2017041100">
+  <ownedViewpoints name="CPS_Viewpoint">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="CPS_System_Diagram" domainClass="cpsml::CPS" enablePopupBars="true">
+      <metamodel href="../../cpsml/model/cpsml.ecore#/"/>
+      <defaultLayer name="Default">
+        <nodeMappings name="MessageBroker" domainClass="cpsml::MessageBroker">
+          <borderedNodeMappings name="WiredModule" semanticCandidatesExpression="aql: self.connectionModule" domainClass="cpsml::WiredModule">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/cpsml.design/img/wiredModule.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </borderedNodeMappings>
+          <borderedNodeMappings name="WirelessModule" semanticCandidatesExpression="aql: self.connectionModule" domainClass="cpsml::WirelessModule">
+            <style xsi:type="style:WorkspaceImageDescription" labelSize="12" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/cpsml.design/img/wirelessModule.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </borderedNodeMappings>
+          <style xsi:type="style:EllipseNodeDescription" labelSize="12" iconPath="/cpsml.design/img/messageBroker.png" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="WirelessConnection" sourceMapping="//@ownedViewpoints[name='CPS_Viewpoint']/@ownedRepresentations[name='CPS_System_Diagram']/@defaultLayer/@containerMappings[name='Environment']/@subContainerMappings[name='Node']/@borderedNodeMappings[name='WirelessModule']" targetMapping="//@ownedViewpoints[name='CPS_Viewpoint']/@ownedRepresentations[name='CPS_System_Diagram']/@defaultLayer/@containerMappings[name='Environment']/@subContainerMappings[name='Node']/@borderedNodeMappings[name='WirelessModule']" targetFinderExpression="feature:connectOpposite">
+          <style lineStyle="dash" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="WiredConnection" sourceMapping="//@ownedViewpoints[name='CPS_Viewpoint']/@ownedRepresentations[name='CPS_System_Diagram']/@defaultLayer/@nodeMappings[name='MessageBroker']/@borderedNodeMappings[name='WiredModule']" targetMapping="//@ownedViewpoints[name='CPS_Viewpoint']/@ownedRepresentations[name='CPS_System_Diagram']/@defaultLayer/@containerMappings[name='Environment']/@subContainerMappings[name='Node']/@borderedNodeMappings[name='WiredModule']" targetFinderExpression="feature:connect">
+          <style lineStyle="dash" sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <containerMappings name="Environment" domainClass="cpsml::Environment">
+          <subContainerMappings name="Node" semanticCandidatesExpression="feature:eAllContents" domainClass="cpsml::Node" childrenPresentation="List">
+            <borderedNodeMappings name="WiredModule" semanticCandidatesExpression="feature:eAllContents" domainClass="cpsml::WiredModule">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/cpsml.design/img/wiredModule.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </borderedNodeMappings>
+            <borderedNodeMappings name="WirelessModule" semanticCandidatesExpression="feature:eAllContents" domainClass="cpsml::WirelessModule">
+              <style xsi:type="style:WorkspaceImageDescription" labelSize="12" sizeComputationExpression="-1" labelPosition="node" resizeKind="NSEW" workspacePath="/cpsml.design/img/wirelessModule.png">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </style>
+            </borderedNodeMappings>
+            <subNodeMappings name="Actuator" semanticCandidatesExpression="feature:eAllContents" domainClass="cpsml::Actuator">
+              <style xsi:type="style:SquareDescription" labelSize="12" iconPath="/cpsml.design/img/actuator.png" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </subNodeMappings>
+            <subNodeMappings name="Sensor" semanticCandidatesExpression="feature:eAllContents" domainClass="cpsml::Sensor">
+              <style xsi:type="style:SquareDescription" borderSizeComputationExpression="1" labelSize="12" iconPath="/cpsml.design/img/sensor.png" labelPosition="node" resizeKind="NSEW">
+                <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+                <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              </style>
+            </subNodeMappings>
+            <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" iconPath="/cpsml.design/img/node.png">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+              <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+            </style>
+          </subContainerMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" borderLineStyle="dash" labelSize="12" showIcon="false" roundedCorner="true" backgroundStyle="Liquid">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="Elements">
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Create Environment" containerMappings="//@ownedViewpoints[name='CPS_Viewpoint']/@ownedRepresentations[name='CPS_System_Diagram']/@defaultLayer/@containerMappings[name='Environment']" iconPath="/cpsml.design/img/enviroment.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cpsml::Environment" referenceName="environment">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="newEnvironment"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:ContainerCreationDescription" name="Create Node" containerMappings="//@ownedViewpoints[name='CPS_Viewpoint']/@ownedRepresentations[name='CPS_System_Diagram']/@defaultLayer/@containerMappings[name='Environment']/@subContainerMappings[name='Node']" iconPath="/cpsml.design/img/node.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New Dialog">
+                <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                  <initialOperation/>
+                </buttons>
+                <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                  <initialOperation/>
+                </buttons>
+                <page name="Default Page" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='CPS_Viewpoint']/@ownedRepresentations[name='CPS_System_Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Create%20Node']/@initialOperation/@firstModelOperations/@groups.0"/>
+                <groups name="Default Group" labelExpression="Group" semanticCandidateExpression="var:self">
+                  <controls xsi:type="properties:RadioDescription" name="status" numberOfColumns="3">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="Health" valueExpression="aql:self.status"/>
+                      </firstModelOperations>
+                    </initialOperation>
+                  </controls>
+                  <controls xsi:type="properties:TextDescription" name="Name" label="Name">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                        <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="newNode"/>
+                      </firstModelOperations>
+                    </initialOperation>
+                  </controls>
+                </groups>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Create MessageBroker" nodeMappings="//@ownedViewpoints[name='CPS_Viewpoint']/@ownedRepresentations[name='CPS_System_Diagram']/@defaultLayer/@nodeMappings[name='MessageBroker']" iconPath="/cpsml.design/img/messageBroker.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cpsml::MessageBroker" referenceName="messageBroker">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="newMessageBroker"/>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Components">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Sensor" nodeMappings="//@ownedViewpoints[name='CPS_Viewpoint']/@ownedRepresentations[name='CPS_System_Diagram']/@defaultLayer/@containerMappings[name='Environment']/@subContainerMappings[name='Node']/@subNodeMappings[name='Sensor']" iconPath="/cpsml.design/img/sensor.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cpsml::Sensor" referenceName="sensor"/>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" iconPath="/cpsml.design/img/actuator.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cpsml::Actuator" referenceName="actuator">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name"/>
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Default Page" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='CPS_Viewpoint']/@ownedRepresentations[name='CPS_System_Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='']/@initialOperation/@firstModelOperations/@subModelOperations.1/@groups.0"/>
+                  <groups name="Default Group" labelExpression="Group" semanticCandidateExpression="var:self">
+                    <controls xsi:type="properties:TextDescription" name="name">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self"/>
+                      </initialOperation>
+                    </controls>
+                  </groups>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Connection"/>
+      </defaultLayer>
+    </ownedRepresentations>
+  </ownedViewpoints>
+  <ownedViewpoints name="CPS_Development_Viewpoint">
+    <ownedRepresentations xsi:type="description_1:DiagramDescription" name="CPS_Development_Diagram" domainClass="cpsml::CPS" enablePopupBars="true">
+      <defaultLayer name="Default">
+        <nodeMappings name="Enviroment" semanticCandidatesExpression="feature:eAllContents" domainClass="cpsml::Environment">
+          <style xsi:type="style:SquareDescription" borderSizeComputationExpression="2" borderLineStyle="dash" labelSize="12" iconPath="/cpsml.design/img/enviroment.png" sizeComputationExpression="" labelPosition="node" resizeKind="NSEW" width="15" height="5">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='yellow']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="Controller" semanticCandidatesExpression="feature:eAllContents" domainClass="cpsml::Controller">
+          <style xsi:type="style:LozengeNodeDescription" labelSize="12" labelExpression="aql: self.name + '\n[' + self.topics-> sep(', ') + ']'" iconPath="/cpsml.design/img/controller.png" sizeComputationExpression="15" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
+          </style>
+        </nodeMappings>
+        <nodeMappings name="MessageBroker" domainClass="cpsml::MessageBroker">
+          <style xsi:type="style:EllipseNodeDescription" labelSize="12" iconPath="/cpsml.design/img/messageBroker.png" labelPosition="node" resizeKind="NSEW">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='blue']"/>
+          </style>
+        </nodeMappings>
+        <edgeMappings name="Hierarchy" sourceMapping="//@ownedViewpoints[name='CPS_Development_Viewpoint']/@ownedRepresentations[name='CPS_Development_Diagram']/@defaultLayer/@nodeMappings[name='Enviroment']" targetMapping="//@ownedViewpoints[name='CPS_Development_Viewpoint']/@ownedRepresentations[name='CPS_Development_Diagram']/@defaultLayer/@containerMappings[name='Node']" targetFinderExpression="feature:node">
+          <style sizeComputationExpression="2" routingStyle="tree">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+            <centerLabelStyleDescription labelSize="12" showIcon="false">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+        </edgeMappings>
+        <edgeMappings name="MessagingLink" sourceMapping="//@ownedViewpoints[name='CPS_Development_Viewpoint']/@ownedRepresentations[name='CPS_Development_Diagram']/@defaultLayer/@nodeMappings[name='MessageBroker']" targetMapping="//@ownedViewpoints[name='CPS_Development_Viewpoint']/@ownedRepresentations[name='CPS_Development_Diagram']/@defaultLayer/@containerMappings[name='Node'] //@ownedViewpoints[name='CPS_Development_Viewpoint']/@ownedRepresentations[name='CPS_Development_Diagram']/@defaultLayer/@nodeMappings[name='Controller']" targetFinderExpression="aql: self.eContainer()" sourceFinderExpression="aql: self.messageBroker" domainClass="cpsml::MessagingLink" useDomainElement="true">
+          <style sizeComputationExpression="2">
+            <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='purple']"/>
+            <centerLabelStyleDescription labelSize="12">
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </centerLabelStyleDescription>
+          </style>
+          <conditionnalStyles predicateExpression="[self.eContainer().eInverse(&quot;publication&quot;)->collect(eAllContents(cpsml::MessagingElement).includes(self.publication) /]">
+            <style sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='gray']"/>
+              <centerLabelStyleDescription labelSize="12">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+          <conditionnalStyles predicateExpression="[self.eContainer().subscription->includes(self) /]">
+            <style sizeComputationExpression="2">
+              <strokeColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='red']"/>
+              <centerLabelStyleDescription labelSize="12">
+                <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              </centerLabelStyleDescription>
+            </style>
+          </conditionnalStyles>
+        </edgeMappings>
+        <containerMappings name="Node" semanticCandidatesExpression="feature:eAllContents" domainClass="cpsml::Node" childrenPresentation="List">
+          <subNodeMappings name="Function" semanticCandidatesExpression="feature:eAllContents" domainClass="cpsml::Function">
+            <style xsi:type="style:SquareDescription" labelSize="12" iconPath="/cpsml.design/img/function.png" labelAlignment="LEFT" labelPosition="node" resizeKind="NSEW">
+              <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+              <color xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            </style>
+          </subNodeMappings>
+          <style xsi:type="style:FlatContainerStyleDescription" borderSizeComputationExpression="1" labelSize="12" showIcon="false">
+            <borderColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <labelColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='black']"/>
+            <backgroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='white']"/>
+            <foregroundColor xsi:type="description:SystemColor" href="environment:/viewpoint#//@systemColors/@entries[name='light_gray']"/>
+          </style>
+        </containerMappings>
+        <toolSections name="Elements">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Controller" nodeMappings="//@ownedViewpoints[name='CPS_Development_Viewpoint']/@ownedRepresentations[name='CPS_Development_Diagram']/@defaultLayer/@nodeMappings[name='Controller']" iconPath="/cpsml.design/img/controller.png">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cpsml::Controller" referenceName="controller">
+                <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="newController"/>
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New Controller">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation>
+                      <firstModelOperations xsi:type="tool_1:SetValue" featureName="topics" valueExpression="aql: tempTopics"/>
+                    </initialOperation>
+                  </buttons>
+                  <page name="Default Page" labelExpression="Create new Node" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='CPS_Development_Viewpoint']/@ownedRepresentations[name='CPS_Development_Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Controller']/@initialOperation/@firstModelOperations/@subModelOperations.1/@groups.0"/>
+                  <groups name="Properties" labelExpression="Properties" semanticCandidateExpression="var:self">
+                    <controls xsi:type="properties:TextDescription" name="Name" labelExpression="Name" valueExpression="feature:name">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:newValue"/>
+                        </firstModelOperations>
+                      </initialOperation>
+                    </controls>
+                    <controls xsi:type="properties:ListDescription" name="Topics" labelExpression="Topics" valueExpression="aql: self.topics" displayExpression="aql:value">
+                      <actions labelExpression="Add Topic">
+                        <initialOperation>
+                          <firstModelOperations xsi:type="properties:DialogModelOperation" titleExpression="Add Topic">
+                            <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                              <initialOperation/>
+                            </buttons>
+                            <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                              <initialOperation/>
+                            </buttons>
+                            <page name="New topic" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='CPS_Development_Viewpoint']/@ownedRepresentations[name='CPS_Development_Diagram']/@defaultLayer/@toolSections.0/@ownedTools[name='Controller']/@initialOperation/@firstModelOperations/@subModelOperations.1/@groups.0/@controls.1/@actions.0/@initialOperation/@firstModelOperations/@groups.0"/>
+                            <groups name="Topic" labelExpression="Group" semanticCandidateExpression="var:self">
+                              <controls xsi:type="properties:TextDescription" name="Name" labelExpression="Name">
+                                <initialOperation>
+                                  <firstModelOperations xsi:type="tool_1:SetValue" featureName="topics" valueExpression="aql: self.topics + Sequence{newValue}"/>
+                                </initialOperation>
+                              </controls>
+                            </groups>
+                          </firstModelOperations>
+                        </initialOperation>
+                      </actions>
+                    </controls>
+                  </groups>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="Function">
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Function" nodeMappings="//@ownedViewpoints[name='CPS_Development_Viewpoint']/@ownedRepresentations[name='CPS_Development_Diagram']/@defaultLayer/@containerMappings[name='Node']/@subNodeMappings[name='Function']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cpsml::Component">
+                <subModelOperations xsi:type="properties:DialogModelOperation" titleExpression="New Dialog">
+                  <buttons labelExpression="Cancel" closeDialogOnClick="true" rollbackChangesOnClose="true">
+                    <initialOperation/>
+                  </buttons>
+                  <buttons labelExpression="OK" default="true" closeDialogOnClick="true">
+                    <initialOperation/>
+                  </buttons>
+                  <page name="Default Page" labelExpression="Page" semanticCandidateExpression="var:self" groups="//@ownedViewpoints[name='CPS_Development_Viewpoint']/@ownedRepresentations[name='CPS_Development_Diagram']/@defaultLayer/@toolSections.1/@ownedTools[name='Function']/@initialOperation/@firstModelOperations/@subModelOperations.0/@groups.0"/>
+                  <groups name="Default Group" labelExpression="Group" semanticCandidateExpression="var:self">
+                    <controls xsi:type="properties:SelectDescription" labelExpression="component" valueExpression="feature:Component" candidatesExpression="aql:self.eContainer().components" candidateDisplayExpression="aql:candidate.name">
+                      <initialOperation>
+                        <firstModelOperations xsi:type="tool_1:ChangeContext" browseExpression="var:self">
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="aql:newValue"/>
+                          <subModelOperations xsi:type="tool_1:SetValue" featureName="name" valueExpression="DefaultName"/>
+                        </firstModelOperations>
+                      </initialOperation>
+                    </controls>
+                  </groups>
+                </subModelOperations>
+              </firstModelOperations>
+            </initialOperation>
+          </ownedTools>
+          <ownedTools xsi:type="tool:NodeCreationDescription" name="Function 2" nodeMappings="//@ownedViewpoints[name='CPS_Development_Viewpoint']/@ownedRepresentations[name='CPS_Development_Diagram']/@defaultLayer/@containerMappings[name='Node']/@subNodeMappings[name='Function']">
+            <variable name="container"/>
+            <viewVariable name="containerView"/>
+            <initialOperation>
+              <firstModelOperations xsi:type="tool_1:CreateInstance" typeName="cpsml::Function"/>
+            </initialOperation>
+          </ownedTools>
+        </toolSections>
+        <toolSections name="MessageLinks"/>
+      </defaultLayer>
+    </ownedRepresentations>
+  </ownedViewpoints>
+</description:Group>

@@ -1,0 +1,20 @@
+<?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<launchConfiguration type="org.eclipse.emf.henshin.interpreter.ui.ruleLaunchConfigurationType">
+    <stringAttribute key="INPUT_URI" value="platform:/resource/cpsml.henshin/models/scenario_1_addFunctionToTopicSensor_input.cps"/>
+    <stringAttribute key="MODULE_PATH" value="platform:/resource/cpsml.henshin/henshin/cpsml.henshin"/>
+    <booleanAttribute key="OPEN_COMPARE" value="true"/>
+    <stringAttribute key="OUTPUT_URI" value="platform:/resource/cpsml.henshin/models/scenario_1_addFunctionToTopicSensor_transformed.cps"/>
+    <mapAttribute key="PARAMETER_TYPES">
+        <mapEntry key="paramName" value="2"/>
+        <mapEntry key="returnType" value="2"/>
+        <mapEntry key="topic" value="2"/>
+    </mapAttribute>
+    <mapAttribute key="PARAMETER_VALUES">
+        <mapEntry key="paramName" value="timeInterval"/>
+        <mapEntry key="returnType" value="INT"/>
+        <mapEntry key="topic" value="temp"/>
+    </mapAttribute>
+    <intAttribute key="UNIT_INDEX" value="2"/>
+    <stringAttribute key="UNIT_NAME" value="addFunctionToTopicSensor"/>
+    <listAttribute key="UNSET_PARAMETERS"/>
+</launchConfiguration>

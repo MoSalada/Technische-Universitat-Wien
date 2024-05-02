@@ -1,0 +1,16 @@
+Manifest-Version: 1.0
+Automatic-Module-Name: cpsml.xtext.ide
+Bundle-ManifestVersion: 2
+Bundle-Name: cpsml.xtext.ide
+Bundle-Vendor: My Company
+Bundle-Version: 1.0.0.qualifier
+Bundle-SymbolicName: cpsml.xtext.ide; singleton:=true
+Bundle-ActivationPolicy: lazy
+Require-Bundle: cpsml.xtext,
+ cpsml,
+ org.eclipse.xtext.ide,
+ org.eclipse.xtext.xbase.ide,
+ org.antlr.runtime;bundle-version="[3.2.0,3.2.1)"
+Bundle-RequiredExecutionEnvironment: JavaSE-11
+Export-Package: at.ac.tuwien.big.ide.contentassist.antlr.internal,
+ at.ac.tuwien.big.ide.contentassist.antlr

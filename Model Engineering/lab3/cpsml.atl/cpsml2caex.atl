@@ -1,0 +1,221 @@
+-- @path CPSML=/cpsml/model/cpsml.ecore
+-- @path CAEX=/cpsml.atl/caex/CAEX.ecore
+
+module cpsml2caex;
+create OUT : CAEX from IN : CPSML;
+
+-- Petar's part
+rule CPS2CAEXFileAndInstanceHierarchy {
+	from 
+		cps: CPSML!CPS
+	to 
+		file: CAEX!CAEXFile(
+			fileName <- cps.name,
+			schemaVersion <- '2.15',
+			instanceHierarchy <- rootelem
+			
+		),
+		rootelem: CAEX!InstanceHierarchy (
+			name <- cps.name,
+			internalElement <- cps.environment
+		)
+	
+}
+
+
+rule Environment2InternalElement {
+	
+	from
+		env : CPSML!Environment
+	to
+		iE: CAEX!InternalElement(
+			name <- env.name
+			
+		)
+	do {
+	
+		for (nd in env.node) {
+			if (nd.component.isEmpty() = false) {
+				iE.internalElement <- thisModule.newNode(nd);
+			}
+			
+			if (nd.component.isEmpty() <> false){
+				env.debug('Cannot set feature nodes to value ...');
+			}
+			
+		}
+	
+	}
+}
+
+
+-- Nick's part
+abstract rule Component2InternalElement {
+	from 
+		component : CPSML!Component
+		
+	to
+		internalElement : CAEX!InternalElement (
+			
+			name <- component.name + '(' + component.oclType().toString().substring(7, component.oclType().toString().size()) + ')' + '[' + component.status.toString().substring(1, 1) + ']',
+			internalElement <- component.function
+			
+		)
+		
+}
+
+
+
+rule Actuator2InternalElement extends Component2InternalElement {
+	
+	from
+		component : CPSML!Actuator
+		
+	to
+		internalElement : CAEX!InternalElement (
+		
+			attribute <- Sequence{type, runs, ratedRuns}
+			
+		),
+		runs : CAEX!Attribute (
+		
+			name <- 'runs',
+			value <- component.runs.toString()
+			
+		),
+		ratedRuns : CAEX!Attribute (
+			
+			name <- 'ratedRuns',
+			value <- component.ratedRuns.toString()
+			
+		),
+		type : CAEX!Attribute (
+		
+			name <- 'type',
+			value <- 'actuator'
+		
+		)
+}
+
+rule Sensor2InternalElement extends Component2InternalElement {
+
+	from
+		component : CPSML!Sensor
+		
+	to
+		internalElement : CAEX!InternalElement (
+			
+			attribute <- frequency
+		
+		),
+		frequency : CAEX!Attribute (
+			
+			name <- 'frequency',
+			value <- component.frequency.toString()
+		
+		)
+
+}
+
+rule Function2InternalElement {
+	
+	from
+		function : CPSML!Function
+		
+	to
+		internalElement : CAEX!InternalElement (
+			
+			
+			--name <- function.name + '(' + function.parameter.toString() + ')',
+			--name <- function.name + '(' + thisModule.prepareSequenceString(thisModule.getParameterString(function)).toString() + ')',
+			name <- function.name + '(' + thisModule.getParameterString(function) + ')',
+			attribute <- returns
+		
+		),
+		returns : CAEX!Attribute (
+			
+			name <- 'returns',
+			value <- function.returnDataType.toString()
+		
+		)
+	
+}
+
+--helper context CPSML!Function def : getParameters() : String =
+helper def : getParameterString(function: CPSML!Function) : String =
+	let paramString : String = '' in
+	
+	function.parameter->collect(p | paramString.concat(p.dataType.toString()).concat('::').concat(p.name))->iterate(str; result : String = '' | 
+		if result='' then	
+			result.concat(str)
+		else 
+			result.concat(', ').concat(str)
+		endif
+		);
+	
+	
+	
+-- Simao's part
+	
+--rule Node2InternalElement{
+--	from
+	
+--		nd : CPSML!Node (nd.component.isEmpty() = false)
+		
+--	to
+--		iE : CAEX!InternalElement(
+			
+--			name <- nd.name,
+--			attribute <- Sequence{position, topics},
+--			internalElement <- nd.component
+			
+--		),
+		
+--		position : CAEX!Attribute (
+		
+--			name <- 'Position',
+--			value <- nd.position.x.toString().concat('|').concat(nd.position.y.toString()).concat('|').concat(nd.position.z.toString())
+		
+--		),
+		
+--		topics : CAEX!Attribute (
+			
+--			name <- 'topics',
+--			value <- nd.component -> collect(c | c.topic) -> asSet().toString()
+--		)
+		
+--}
+
+lazy rule newNode{
+	from
+	
+		nd : CPSML!Node
+		
+	to
+		iE : CAEX!InternalElement(
+			
+			
+			name <- nd.name,
+			attribute <- Sequence{position, topics},
+			internalElement <- nd.component
+			
+		),
+		
+		position : CAEX!Attribute (
+		
+			name <- 'Position',
+			value <- nd.position.x.toString().concat('|').concat(nd.position.y.toString()).concat('|').concat(nd.position.z.toString())
+		
+		),
+		
+		topics : CAEX!Attribute (
+			
+			name <- 'topics',
+			value <- nd.component -> collect(c | c.topic) -> asSet().toString()
+		)
+		
+}
+
+
+
+	

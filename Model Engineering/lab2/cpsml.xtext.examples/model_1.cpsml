@@ -1,0 +1,94 @@
+<?xml version="1.0" encoding="ASCII"?>
+<cpsml:CPS xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:cpsml="http://big.tuwien.ac.at/cpsml" name="model">
+  <environment name="ProductionFloor">
+    <node name="Printer" status="CRITICAL">
+      <subscription messageBroker="//@messageBroker.0">
+        <topics>temp</topics>
+        <topics>production</topics>
+      </subscription>
+      <publication messageBroker="//@messageBroker.0">
+        <topics>temp</topics>
+        <topics>production</topics>
+      </publication>
+      <publication messageBroker="//@messageBroker.0">
+        <topics>production</topics>
+      </publication>
+      <connectionModule xsi:type="cpsml:WiredModule" name="PRINTER_W" connect="//@messageBroker.0/@connectionModule.0">
+        <supportedProtocols>MQTT</supportedProtocols>
+        <supportedProtocols>SMQTT</supportedProtocols>
+      </connectionModule>
+      <connectionModule xsi:type="cpsml:WirelessModule" name="PRINTER_WL" connect="//@messageBroker.0/@connectionModule.2" range="10.0">
+        <supportedProtocols>DDS</supportedProtocols>
+        <supportedProtocols>MQTT</supportedProtocols>
+      </connectionModule>
+      <position/>
+      <component xsi:type="cpsml:Actuator" name="HeatedPrintBed" status="CRITICAL" topic="temp">
+        <function name="setTemperature">
+          <parameter name="temperature" dataType="INT"/>
+        </function>
+      </component>
+      <component xsi:type="cpsml:Actuator" name="Extrudor" topic="production" runs="100" ratedRuns="10000">
+        <function name="startPrint"/>
+        <function name="getRemainingPrintDuration" returnDataType="INT" hasReturn="true"/>
+      </component>
+    </node>
+    <node name="Robot">
+      <subscription messageBroker="//@messageBroker.0">
+        <topics>temp</topics>
+      </subscription>
+      <publication messageBroker="//@messageBroker.0">
+        <topics>temp</topics>
+      </publication>
+      <connectionModule xsi:type="cpsml:WirelessModule" name="ROBOT_WL" connect="//@messageBroker.0/@connectionModule.2" range="3.0">
+        <supportedProtocols>DDS</supportedProtocols>
+      </connectionModule>
+      <position x="2.0" y="2.0" z="1.0"/>
+      <component xsi:type="cpsml:Actuator" name="RoboticArm" topic="logistics">
+        <function name="grab">
+          <parameter name="strength" dataType="INT"/>
+          <parameter name="velocity" dataType="INT"/>
+        </function>
+      </component>
+      <component xsi:type="cpsml:Sensor" name="InternalTemperature" topic="temp">
+        <function name="getTemperature" returnDataType="INT" hasReturn="true"/>
+      </component>
+    </node>
+  </environment>
+  <messageBroker name="Central">
+    <connectionModule xsi:type="cpsml:WiredModule" name="CENTRAL_W">
+      <supportedProtocols>DDS</supportedProtocols>
+      <supportedProtocols>MQTT</supportedProtocols>
+      <supportedProtocols>SMQTT</supportedProtocols>
+    </connectionModule>
+    <connectionModule xsi:type="cpsml:WiredModule" name="CENTRAL_W2">
+      <supportedProtocols>DDS</supportedProtocols>
+    </connectionModule>
+    <connectionModule xsi:type="cpsml:WirelessModule" name="CENTRAL_WL" range="20.0">
+      <supportedProtocols>DDS</supportedProtocols>
+      <supportedProtocols>MQTT</supportedProtocols>
+      <supportedProtocols>SMQTT</supportedProtocols>
+    </connectionModule>
+    <connectionModule xsi:type="cpsml:WirelessModule" name="CENTRAL_WL2" range="2.0">
+      <supportedProtocols>DDS</supportedProtocols>
+    </connectionModule>
+    <position x="3.0" y="3.0"/>
+    <topics>temp</topics>
+    <topics>production</topics>
+    <topics>logistics</topics>
+  </messageBroker>
+  <controller name="Controller C1" description="A controller to interact with the system">
+    <subscription messageBroker="//@messageBroker.0">
+      <topics>temp</topics>
+      <topics>production</topics>
+      <topics>logistics</topics>
+    </subscription>
+    <publication messageBroker="//@messageBroker.0">
+      <topics>temp</topics>
+      <topics>production</topics>
+      <topics>logistics</topics>
+    </publication>
+    <topics>temp</topics>
+    <topics>production</topics>
+    <topics>logistics</topics>
+  </controller>
+</cpsml:CPS>

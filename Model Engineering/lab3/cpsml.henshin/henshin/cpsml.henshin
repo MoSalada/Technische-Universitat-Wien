@@ -1,0 +1,242 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<henshin:Module xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" xmlns:henshin="http://www.eclipse.org/emf/2011/Henshin" xmi:id="_i2GxgGmhEe27xN1RUzKxTQ">
+  <imports href="../../cpsml/model/cpsml.ecore#/"/>
+  <units xsi:type="henshin:Rule" xmi:id="_DvissGmiEe27xN1RUzKxTQ" name="unLinkNodesFromMBs">
+    <lhs xmi:id="_DvpaYGmiEe27xN1RUzKxTQ" name="Lhs"/>
+    <rhs xmi:id="_DvpaYWmiEe27xN1RUzKxTQ" name="Rhs"/>
+    <multiRules xmi:id="_Wtn603oKEe27rPzgruVsDw">
+      <lhs xmi:id="_Wtn61HoKEe27rPzgruVsDw" name="Lhs">
+        <nodes xmi:id="_Wtn60HoKEe27rPzgruVsDw" outgoing="_Z2TjAHoKEe27rPzgruVsDw _dOPdQHoMEe27rPzgruVsDw">
+          <type href="../../cpsml/model/cpsml.ecore#//Node"/>
+        </nodes>
+        <nodes xmi:id="_X5MWEHoKEe27rPzgruVsDw" incoming="_Z2TjAHoKEe27rPzgruVsDw" outgoing="_aLxcsHoKEe27rPzgruVsDw">
+          <type href="../../cpsml/model/cpsml.ecore#//MessagingLink"/>
+        </nodes>
+        <nodes xmi:id="_Y6kTgHoKEe27rPzgruVsDw" incoming="_aLxcsHoKEe27rPzgruVsDw _eOwfEHoMEe27rPzgruVsDw _BcVAEHoNEe27rPzgruVsDw _EBGC4HoNEe27rPzgruVsDw">
+          <type href="../../cpsml/model/cpsml.ecore#//MessageBroker"/>
+        </nodes>
+        <nodes xmi:id="_cJCIsHoMEe27rPzgruVsDw" incoming="_dOPdQHoMEe27rPzgruVsDw" outgoing="_eOwfEHoMEe27rPzgruVsDw">
+          <type href="../../cpsml/model/cpsml.ecore#//MessagingLink"/>
+        </nodes>
+        <nodes xmi:id="_1JKlUHoMEe27rPzgruVsDw" outgoing="_D06oEHoNEe27rPzgruVsDw">
+          <type href="../../cpsml/model/cpsml.ecore#//Node"/>
+        </nodes>
+        <nodes xmi:id="_2eTzUHoMEe27rPzgruVsDw" outgoing="_BLqG0HoNEe27rPzgruVsDw">
+          <type href="../../cpsml/model/cpsml.ecore#//Node"/>
+        </nodes>
+        <nodes xmi:id="_9vSGkHoMEe27rPzgruVsDw" incoming="_BLqG0HoNEe27rPzgruVsDw" outgoing="_BcVAEHoNEe27rPzgruVsDw">
+          <type href="../../cpsml/model/cpsml.ecore#//MessagingLink"/>
+        </nodes>
+        <nodes xmi:id="_DA_QwHoNEe27rPzgruVsDw" incoming="_D06oEHoNEe27rPzgruVsDw" outgoing="_EBGC4HoNEe27rPzgruVsDw">
+          <type href="../../cpsml/model/cpsml.ecore#//MessagingLink"/>
+        </nodes>
+        <edges xmi:id="_Z2TjAHoKEe27rPzgruVsDw" source="_Wtn60HoKEe27rPzgruVsDw" target="_X5MWEHoKEe27rPzgruVsDw">
+          <type href="../../cpsml/model/cpsml.ecore#//MessagingElement/publication"/>
+        </edges>
+        <edges xmi:id="_aLxcsHoKEe27rPzgruVsDw" source="_X5MWEHoKEe27rPzgruVsDw" target="_Y6kTgHoKEe27rPzgruVsDw">
+          <type href="../../cpsml/model/cpsml.ecore#//MessagingLink/messageBroker"/>
+        </edges>
+        <edges xmi:id="_dOPdQHoMEe27rPzgruVsDw" source="_Wtn60HoKEe27rPzgruVsDw" target="_cJCIsHoMEe27rPzgruVsDw">
+          <type href="../../cpsml/model/cpsml.ecore#//MessagingElement/subscription"/>
+        </edges>
+        <edges xmi:id="_eOwfEHoMEe27rPzgruVsDw" source="_cJCIsHoMEe27rPzgruVsDw" target="_Y6kTgHoKEe27rPzgruVsDw">
+          <type href="../../cpsml/model/cpsml.ecore#//MessagingLink/messageBroker"/>
+        </edges>
+        <edges xmi:id="_BLqG0HoNEe27rPzgruVsDw" source="_2eTzUHoMEe27rPzgruVsDw" target="_9vSGkHoMEe27rPzgruVsDw">
+          <type href="../../cpsml/model/cpsml.ecore#//MessagingElement/publication"/>
+        </edges>
+        <edges xmi:id="_BcVAEHoNEe27rPzgruVsDw" source="_9vSGkHoMEe27rPzgruVsDw" target="_Y6kTgHoKEe27rPzgruVsDw">
+          <type href="../../cpsml/model/cpsml.ecore#//MessagingLink/messageBroker"/>
+        </edges>
+        <edges xmi:id="_D06oEHoNEe27rPzgruVsDw" source="_1JKlUHoMEe27rPzgruVsDw" target="_DA_QwHoNEe27rPzgruVsDw">
+          <type href="../../cpsml/model/cpsml.ecore#//MessagingElement/subscription"/>
+        </edges>
+        <edges xmi:id="_EBGC4HoNEe27rPzgruVsDw" source="_DA_QwHoNEe27rPzgruVsDw" target="_Y6kTgHoKEe27rPzgruVsDw">
+          <type href="../../cpsml/model/cpsml.ecore#//MessagingLink/messageBroker"/>
+        </edges>
+      </lhs>
+      <rhs xmi:id="_Wtn61XoKEe27rPzgruVsDw" name="Rhs">
+        <nodes xmi:id="_Wtn60XoKEe27rPzgruVsDw">
+          <type href="../../cpsml/model/cpsml.ecore#//Node"/>
+        </nodes>
+        <nodes xmi:id="_Y6kTgXoKEe27rPzgruVsDw">
+          <type href="../../cpsml/model/cpsml.ecore#//MessageBroker"/>
+        </nodes>
+        <nodes xmi:id="_1JMagHoMEe27rPzgruVsDw">
+          <type href="../../cpsml/model/cpsml.ecore#//Node"/>
+        </nodes>
+        <nodes xmi:id="_2eTzUXoMEe27rPzgruVsDw">
+          <type href="../../cpsml/model/cpsml.ecore#//Node"/>
+        </nodes>
+      </rhs>
+      <mappings xmi:id="_Wtn60noKEe27rPzgruVsDw" origin="_Wtn60HoKEe27rPzgruVsDw" image="_Wtn60XoKEe27rPzgruVsDw"/>
+      <mappings xmi:id="_Y6kTgnoKEe27rPzgruVsDw" origin="_Y6kTgHoKEe27rPzgruVsDw" image="_Y6kTgXoKEe27rPzgruVsDw"/>
+      <mappings xmi:id="_1JMagXoMEe27rPzgruVsDw" origin="_1JKlUHoMEe27rPzgruVsDw" image="_1JMagHoMEe27rPzgruVsDw"/>
+      <mappings xmi:id="_2eTzUnoMEe27rPzgruVsDw" origin="_2eTzUHoMEe27rPzgruVsDw" image="_2eTzUXoMEe27rPzgruVsDw"/>
+    </multiRules>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_ETo4QGmiEe27xN1RUzKxTQ" name="addFunctionToTopicSensor">
+    <parameters xmi:id="_KPoVkGmiEe27xN1RUzKxTQ" name="topic" kind="IN">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_KPqKwGmiEe27xN1RUzKxTQ" name="returnType" kind="IN">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <parameters xmi:id="_KPqKwWmiEe27xN1RUzKxTQ" name="paramName" kind="IN">
+      <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    </parameters>
+    <lhs xmi:id="_ETsioGmiEe27xN1RUzKxTQ" name="Lhs"/>
+    <rhs xmi:id="_ETsioWmiEe27xN1RUzKxTQ" name="Rhs"/>
+    <multiRules xmi:id="_3WgScHhSEe2SBr2HTnECLw">
+      <parameters xmi:id="_3WnAIHhSEe2SBr2HTnECLw" name="topic" kind="IN">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_3WnAIXhSEe2SBr2HTnECLw" name="returnType" kind="IN">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <parameters xmi:id="_3WnAInhSEe2SBr2HTnECLw" name="paramName" kind="IN">
+        <type xsi:type="ecore:EDataType" href="http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+      </parameters>
+      <lhs xmi:id="_3WgScXhSEe2SBr2HTnECLw" name="Lhs">
+        <nodes xmi:id="_3WXIgHhSEe2SBr2HTnECLw" outgoing="_DyeZAHhVEe2SBr2HTnECLw">
+          <type href="../../cpsml/model/cpsml.ecore#//Node"/>
+        </nodes>
+        <nodes xmi:id="_B29ukHhVEe2SBr2HTnECLw" incoming="_DyeZAHhVEe2SBr2HTnECLw">
+          <type href="../../cpsml/model/cpsml.ecore#//Sensor"/>
+          <attributes xmi:id="_aNhCsHhVEe2SBr2HTnECLw" value="topic">
+            <type href="../../cpsml/model/cpsml.ecore#//Component/topic"/>
+          </attributes>
+        </nodes>
+        <edges xmi:id="_DyeZAHhVEe2SBr2HTnECLw" source="_3WXIgHhSEe2SBr2HTnECLw" target="_B29ukHhVEe2SBr2HTnECLw">
+          <type href="../../cpsml/model/cpsml.ecore#//Node/component"/>
+        </edges>
+      </lhs>
+      <rhs xmi:id="_3Wg5gHhSEe2SBr2HTnECLw" name="Rhs">
+        <nodes xmi:id="_3Wd2MHhSEe2SBr2HTnECLw" outgoing="_DyfAEHhVEe2SBr2HTnECLw">
+          <type href="../../cpsml/model/cpsml.ecore#//Node"/>
+        </nodes>
+        <nodes xmi:id="_B2_jwHhVEe2SBr2HTnECLw" incoming="_DyfAEHhVEe2SBr2HTnECLw" outgoing="_JjTvMHhVEe2SBr2HTnECLw">
+          <type href="../../cpsml/model/cpsml.ecore#//Sensor"/>
+          <attributes xmi:id="_aNhCsXhVEe2SBr2HTnECLw" value="topic">
+            <type href="../../cpsml/model/cpsml.ecore#//Component/topic"/>
+          </attributes>
+        </nodes>
+        <nodes xmi:id="_H5zawHhVEe2SBr2HTnECLw" incoming="_JjTvMHhVEe2SBr2HTnECLw" outgoing="_nx8ewHhaEe2SBr2HTnECLw">
+          <type href="../../cpsml/model/cpsml.ecore#//Function"/>
+          <attributes xmi:id="_evQIgHhVEe2SBr2HTnECLw" value="'get'+'_'+topic+'('+')'">
+            <type href="../../cpsml/model/cpsml.ecore#//NamedElement/name"/>
+          </attributes>
+          <attributes xmi:id="_ggvUQHhVEe2SBr2HTnECLw" value="returnType">
+            <type href="../../cpsml/model/cpsml.ecore#//Function/returnDataType"/>
+          </attributes>
+          <attributes xmi:id="_HiKr8HhXEe2SBr2HTnECLw" value="true">
+            <type href="../../cpsml/model/cpsml.ecore#//Function/hasReturn"/>
+          </attributes>
+        </nodes>
+        <nodes xmi:id="_m8p1gHhaEe2SBr2HTnECLw" incoming="_nx8ewHhaEe2SBr2HTnECLw">
+          <type href="../../cpsml/model/cpsml.ecore#//Parameter"/>
+          <attributes xmi:id="_pcf8EHhaEe2SBr2HTnECLw" value="paramName">
+            <type href="../../cpsml/model/cpsml.ecore#//NamedElement/name"/>
+          </attributes>
+          <attributes xmi:id="_sr-IwHhaEe2SBr2HTnECLw" value="INT">
+            <type href="../../cpsml/model/cpsml.ecore#//Parameter/dataType"/>
+          </attributes>
+        </nodes>
+        <edges xmi:id="_DyfAEHhVEe2SBr2HTnECLw" source="_3Wd2MHhSEe2SBr2HTnECLw" target="_B2_jwHhVEe2SBr2HTnECLw">
+          <type href="../../cpsml/model/cpsml.ecore#//Node/component"/>
+        </edges>
+        <edges xmi:id="_JjTvMHhVEe2SBr2HTnECLw" source="_B2_jwHhVEe2SBr2HTnECLw" target="_H5zawHhVEe2SBr2HTnECLw">
+          <type href="../../cpsml/model/cpsml.ecore#//Component/function"/>
+        </edges>
+        <edges xmi:id="_nx8ewHhaEe2SBr2HTnECLw" source="_H5zawHhVEe2SBr2HTnECLw" target="_m8p1gHhaEe2SBr2HTnECLw">
+          <type href="../../cpsml/model/cpsml.ecore#//Function/parameter"/>
+        </edges>
+      </rhs>
+      <mappings xmi:id="_3WedQHhSEe2SBr2HTnECLw" origin="_3WXIgHhSEe2SBr2HTnECLw" image="_3Wd2MHhSEe2SBr2HTnECLw"/>
+      <mappings xmi:id="_B2_jwXhVEe2SBr2HTnECLw" origin="_B29ukHhVEe2SBr2HTnECLw" image="_B2_jwHhVEe2SBr2HTnECLw"/>
+    </multiRules>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_E7jz4GmiEe27xN1RUzKxTQ" name="fixCriticalComponents">
+    <lhs xmi:id="_E7neQGmiEe27xN1RUzKxTQ" name="Lhs"/>
+    <rhs xmi:id="_E7neQWmiEe27xN1RUzKxTQ" name="Rhs"/>
+    <multiRules xmi:id="_-AmQYHvKEe2Vj6a4dC83xA">
+      <lhs xmi:id="_-Am3cHvKEe2Vj6a4dC83xA" name="Lhs">
+        <nodes xmi:id="_-Agw0HvKEe2Vj6a4dC83xA">
+          <type href="../../cpsml/model/cpsml.ecore#//Component"/>
+          <attributes xmi:id="_-ySzEHvKEe2Vj6a4dC83xA" value="CRITICAL">
+            <type href="../../cpsml/model/cpsml.ecore#//StatefulElement/status"/>
+          </attributes>
+        </nodes>
+      </lhs>
+      <rhs xmi:id="_-Am3cXvKEe2Vj6a4dC83xA" name="Rhs">
+        <nodes xmi:id="_-AlpUHvKEe2Vj6a4dC83xA">
+          <type href="../../cpsml/model/cpsml.ecore#//Component"/>
+          <attributes xmi:id="_-yTaIHvKEe2Vj6a4dC83xA" value="GOOD">
+            <type href="../../cpsml/model/cpsml.ecore#//StatefulElement/status"/>
+          </attributes>
+        </nodes>
+      </rhs>
+      <mappings xmi:id="_-AlpUXvKEe2Vj6a4dC83xA" origin="_-Agw0HvKEe2Vj6a4dC83xA" image="_-AlpUHvKEe2Vj6a4dC83xA"/>
+    </multiRules>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_FjAOYGmiEe27xN1RUzKxTQ" name="fixWarningComponents">
+    <lhs xmi:id="_FjDRsGmiEe27xN1RUzKxTQ" name="Lhs"/>
+    <rhs xmi:id="_FjDRsWmiEe27xN1RUzKxTQ" name="Rhs"/>
+    <multiRules xmi:id="_gsJCYHvLEe2Vj6a4dC83xA">
+      <lhs xmi:id="_gsJCYXvLEe2Vj6a4dC83xA" name="Lhs">
+        <nodes xmi:id="_gsIbUHvLEe2Vj6a4dC83xA">
+          <type href="../../cpsml/model/cpsml.ecore#//Component"/>
+          <attributes xmi:id="_hNwhsHvLEe2Vj6a4dC83xA" value="WARNING">
+            <type href="../../cpsml/model/cpsml.ecore#//StatefulElement/status"/>
+          </attributes>
+        </nodes>
+      </lhs>
+      <rhs xmi:id="_gsJCYnvLEe2Vj6a4dC83xA" name="Rhs">
+        <nodes xmi:id="_gsIbUXvLEe2Vj6a4dC83xA">
+          <type href="../../cpsml/model/cpsml.ecore#//Component"/>
+          <attributes xmi:id="_hNwhsXvLEe2Vj6a4dC83xA" value="GOOD">
+            <type href="../../cpsml/model/cpsml.ecore#//StatefulElement/status"/>
+          </attributes>
+        </nodes>
+      </rhs>
+      <mappings xmi:id="_gsIbUnvLEe2Vj6a4dC83xA" origin="_gsIbUHvLEe2Vj6a4dC83xA" image="_gsIbUXvLEe2Vj6a4dC83xA"/>
+    </multiRules>
+  </units>
+  <units xsi:type="henshin:Rule" xmi:id="_GOliAGmiEe27xN1RUzKxTQ" name="fixNodes">
+    <lhs xmi:id="_GOolUGmiEe27xN1RUzKxTQ" name="Lhs"/>
+    <rhs xmi:id="_GOolUWmiEe27xN1RUzKxTQ" name="Rhs"/>
+    <multiRules xmi:id="_qKCjQHrmEe2_aeqIuyWknQ">
+      <lhs xmi:id="_qKCjQXrmEe2_aeqIuyWknQ" name="Lhs">
+        <nodes xmi:id="_qKB8MHrmEe2_aeqIuyWknQ">
+          <type href="../../cpsml/model/cpsml.ecore#//Node"/>
+          <attributes xmi:id="_rJ3okHrmEe2_aeqIuyWknQ" value="WARNING">
+            <type href="../../cpsml/model/cpsml.ecore#//StatefulElement/status"/>
+          </attributes>
+        </nodes>
+        <nodes xmi:id="_MG0KwHrnEe2_aeqIuyWknQ">
+          <type href="../../cpsml/model/cpsml.ecore#//Node"/>
+          <attributes xmi:id="_POtv0HrnEe2_aeqIuyWknQ" value="CRITICAL">
+            <type href="../../cpsml/model/cpsml.ecore#//StatefulElement/status"/>
+          </attributes>
+        </nodes>
+      </lhs>
+      <rhs xmi:id="_qKDKUHrmEe2_aeqIuyWknQ" name="Rhs">
+        <nodes xmi:id="_qKB8MXrmEe2_aeqIuyWknQ">
+          <type href="../../cpsml/model/cpsml.ecore#//Node"/>
+          <attributes xmi:id="_rJ3okXrmEe2_aeqIuyWknQ" value="GOOD">
+            <type href="../../cpsml/model/cpsml.ecore#//StatefulElement/status"/>
+          </attributes>
+        </nodes>
+        <nodes xmi:id="_MG1_8HrnEe2_aeqIuyWknQ">
+          <type href="../../cpsml/model/cpsml.ecore#//Node"/>
+          <attributes xmi:id="_POuW4HrnEe2_aeqIuyWknQ" value="GOOD">
+            <type href="../../cpsml/model/cpsml.ecore#//StatefulElement/status"/>
+          </attributes>
+        </nodes>
+      </rhs>
+      <mappings xmi:id="_qKB8MnrmEe2_aeqIuyWknQ" origin="_qKB8MHrmEe2_aeqIuyWknQ" image="_qKB8MXrmEe2_aeqIuyWknQ"/>
+      <mappings xmi:id="_MG1_8XrnEe2_aeqIuyWknQ" origin="_MG0KwHrnEe2_aeqIuyWknQ" image="_MG1_8HrnEe2_aeqIuyWknQ"/>
+    </multiRules>
+  </units>
+  <units xsi:type="henshin:SequentialUnit" xmi:id="_HLJ38GmiEe27xN1RUzKxTQ" name="fixAllCPSNodes" subUnits="_E7jz4GmiEe27xN1RUzKxTQ _FjAOYGmiEe27xN1RUzKxTQ _GOliAGmiEe27xN1RUzKxTQ"/>
+</henshin:Module>

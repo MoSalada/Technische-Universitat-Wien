@@ -1,0 +1,198 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<ecore:EPackage xmi:version="2.0" xmlns:xmi="http://www.omg.org/XMI" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+    xmlns:ecore="http://www.eclipse.org/emf/2002/Ecore" name="modelEngLab1" nsURI="http://www.example.org/modelEngLab1" nsPrefix="modelEngLab1">
+  <eAnnotations source="http://www.eclipse.org/OCL/Import">
+    <details key="ecore" value="http://www.eclipse.org/emf/2002/Ecore"/>
+  </eAnnotations>
+  <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+    <details key="invocationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="settingDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+    <details key="validationDelegates" value="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot"/>
+  </eAnnotations>
+  <eClassifiers xsi:type="ecore:EClass" name="Controller">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="messaginglinkTopicsIsSubsetOfTopics"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="messaginglinkTopicsIsSubsetOfTopics" value="&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;self.topics -> includesAll(messaginglink.topics)&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="description" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="topics" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="messaginglink" upperBound="-1"
+        eType="#//MessagingLink"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connectionmodule" upperBound="-1"
+        eType="#//ConnectionModule" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MessagingLink">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="topicsIsSubsetOfBrokerTopics"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="topicsIsSubsetOfBrokerTopics" value="&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;messagebroker.topics -> includesAll(self.topics)&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="topics" lowerBound="1"
+        upperBound="-1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="type" lowerBound="1" eType="#//MessagingLinkType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="messagebroker" lowerBound="1"
+        eType="#//MessageBroker"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="DataType">
+    <eLiterals name="NULL"/>
+    <eLiterals name="INT" value="1"/>
+    <eLiterals name="FLOAT" value="2"/>
+    <eLiterals name="BOOLEAN" value="3"/>
+    <eLiterals name="STRING" value="4" literal="STRING"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Function">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="descrption" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="returnDataType" eType="#//DataType"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="parameter" eType="#//Parameter"
+        containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Parameter">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"
+        defaultValueLiteral="temp"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="dataType" lowerBound="1"
+        eType="#//DataType"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Position">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="x" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="y" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="z" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="MessagingLinkType">
+    <eLiterals name="PUBLISH"/>
+    <eLiterals name="SUBSCRIBE" value="1"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Sensor" eSuperTypes="#//Component">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="sensorFunctionReturnTypeCannotBeNull"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="sensorFunctionReturnTypeCannotBeNull" value="&#xA;&#x9;&#x9;&#x9;let functions : Collection = self.function -> collect(function.returnDataType) in&#xA;&#x9;&#x9;&#x9;&#x9;functions -> forAll(f | f &lt;> DataType::NULL)&#xA;&#x9;&#x9;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Frequency" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EFloat"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Actuator" eSuperTypes="#//Component">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="actuatorCount"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="actuatorCount" value="&#xA;&#x9;&#x9;&#x9;self.runs &lt;= self.ratedRuns&#xA;&#x9;&#x9;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="runs" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="ratedRuns" lowerBound="1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Wireless" eSuperTypes="#//ConnectionModule">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="rangeNotNegative mustConnectToLikeModule wirelessCanConnectOnlyIfInRange"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="rangeNotNegative" value="&#xA;&#x9;&#x9;&#x9;range > 0&#xA;&#x9;&#x9;"/>
+      <details key="mustConnectToLikeModule" value="&#xA;&#x9;&#x9;&#x9;self.connectionmodules -> forAll(oclIsKindOf(Wireless))&#xA;&#x9;&#x9;"/>
+      <details key="wirelessCanConnectOnlyIfInRange" value="&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;if self.node &lt;> null then&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;let x1 : Real = self.node.position.x in&#xA;&#x9;&#x9;&#x9;&#x9;let y1 : Real = self.node.position.y in&#xA;&#x9;&#x9;&#x9;&#x9;let z1 : Real = self.node.position.z in&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;self.connectionmodules -> forAll(c | c.node &lt;> null implies&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;let x2 : Real = c.node.position.x in&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;let y2 : Real = c.node.position.y in&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;let z2 : Real = c.node.position.z in&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; (x2-x1)*(x2-x1)+(y2-y1)*(y2-y1)+(z2-z1)*(z2-z1) &lt;= self.range * self.range&#xA;&#x9;&#x9;&#x9;&#x9;)&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;and&#xA;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;self.connectionmodules -> forAll(c | c.messagebroker &lt;> null implies&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;let x2 : Real = c.messagebroker.position.x in&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;let y2 : Real = c.messagebroker.position.y in&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;let z2 : Real = c.messagebroker.position.z in&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; (x2-x1)*(x2-x1)+(y2-y1)*(y2-y1)+(z2-z1)*(z2-z1) &lt;= self.range * self.range&#xA;&#x9;&#x9;&#x9;&#x9;)&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;else&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;let x1 : Real = self.messagebroker.position.x in&#xA;&#x9;&#x9;&#x9;&#x9;let y1 : Real = self.messagebroker.position.y in&#xA;&#x9;&#x9;&#x9;&#x9;let z1 : Real = self.messagebroker.position.z in&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;self.connectionmodules -> forAll(c | c.node &lt;> null implies&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;let x2 : Real = c.node.position.x in&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;let y2 : Real = c.node.position.y in&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;let z2 : Real = c.node.position.z in&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; (x2-x1)*(x2-x1)+(y2-y1)*(y2-y1)+(z2-z1)*(z2-z1) &lt;= self.range * self.range&#xA;&#x9;&#x9;&#x9;&#x9;)&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;and&#xA;&#x9;&#xA;&#x9;&#x9;&#x9;&#x9;self.connectionmodules -> forAll(c | c.messagebroker &lt;> null implies&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;let x2 : Real = c.messagebroker.position.x in&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;let y2 : Real = c.messagebroker.position.y in&#xA;&#x9;&#x9;&#x9;&#x9;&#x9;let z2 : Real = c.messagebroker.position.z in&#xA;&#x9;&#x9;&#x9;&#x9;&#x9; (x2-x1)*(x2-x1)+(y2-y1)*(y2-y1)+(z2-z1)*(z2-z1) &lt;= self.range * self.range&#xA;&#x9;&#x9;&#x9;&#x9;)&#xA;&#x9;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;endif&#xA;&#x9;&#x9;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="range" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EInt"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="SupportedProtocols">
+    <eLiterals name="DDS"/>
+    <eLiterals name="MQTT" value="1"/>
+    <eLiterals name="SMQTT" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="ConnectionModule" abstract="true">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="canOnlyBeConnectedToDevice nameStartsWithNodeNameInUpperCase"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="canOnlyBeConnectedToDevice" value="&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;self.node &lt;> null implies self.messagebroker = null and&#xA;&#x9;&#x9;&#x9;self.messagebroker &lt;> null implies self.node = null&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;"/>
+      <details key="nameStartsWithNodeNameInUpperCase" value="&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;/*let nameSize : Integer = self.node.name.size() in*/&#xA;&#x9;&#x9;&#x9;self.node &lt;> null implies self.node.name.size() &lt;= self.name.size() and self.name.substring(1,self.node.name.size()) = self.node.name.toUpper()&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="supportedProtocols" lowerBound="1"
+        upperBound="3" eType="#//SupportedProtocols"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connectionmodules" upperBound="-1"
+        eType="#//ConnectionModule"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="node" eType="#//Node"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="messagebroker" eType="#//MessageBroker"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Wired" eSuperTypes="#//ConnectionModule">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="mustConnectToLikeModule"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="mustConnectToLikeModule" value="&#xA;&#x9;&#x9;&#x9;self.connectionmodules -> forAll(oclIsKindOf(Wired))&#xA;&#x9;&#x9;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Material" eType="#//Material"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="MessageBroker">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="Name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="topics" upperBound="-1"
+        eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="messaginglink" upperBound="-1"
+        eType="#//MessagingLink" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connectionmodule" upperBound="-1"
+        eType="#//ConnectionModule" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="position" lowerBound="1"
+        eType="#//Position" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Material">
+    <eLiterals name="STEEL"/>
+    <eLiterals name="COPPER" value="1"/>
+    <eLiterals name="ALUMINIUM" value="2"/>
+    <eLiterals name="SILVER" value="3"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="CPS">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="controller" upperBound="-1"
+        eType="#//Controller" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="messagebroker" upperBound="-1"
+        eType="#//MessageBroker" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="environment" upperBound="-1"
+        eType="#//Environment" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Environment">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="nodes" upperBound="-1"
+        eType="#//Node" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Node">
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore">
+      <details key="constraints" value="messaginglinkTopicsIsSubsetOfTopics nodeStatusGood nodeMustBeConnectedToMessageBrokerBeforeMessagingLinkCanExist"/>
+    </eAnnotations>
+    <eAnnotations source="http://www.eclipse.org/emf/2002/Ecore/OCL/Pivot">
+      <details key="messaginglinkTopicsIsSubsetOfTopics" value="&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;let topics : Collection = self.component -> collect(component.topic) in&#xA;&#x9;&#x9;&#x9;topics -> includesAll(messaginglink.topics)&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;"/>
+      <details key="nodeStatusGood" value="&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;/*self.status = Status::GOOD implies component -> forAll(component.status = Status::GOOD) and&#xA;&#x9;&#x9;&#x9;self.status &lt;> Status::GOOD implies component -> exists(component.status &lt;> Status::GOOD)*/&#xA;&#x9;&#x9;&#x9;(self.status = Status::GOOD implies self.component -> forAll(c | c.status = Status::GOOD)) and&#xA;&#x9;&#x9;&#x9;(self.status &lt;> Status::GOOD implies self.component -> exists(c | c.status &lt;> Status::GOOD))&#xA;&#x9;&#x9;&#x9;&#xA;&#x9;&#x9;"/>
+      <details key="nodeMustBeConnectedToMessageBrokerBeforeMessagingLinkCanExist"
+          value="&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;&#x9;self.messaginglink -> forAll(m | m &lt;> null implies self.connectionmodule.connectionmodules -> exists(c | c.messagebroker = m.messagebroker))&#xA;&#x9;&#x9;&#xA;&#x9;&#x9;"/>
+    </eAnnotations>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="status" lowerBound="1"
+        eType="#//Status"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="messaginglink" upperBound="-1"
+        eType="#//MessagingLink"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="component" upperBound="-1"
+        eType="#//Component" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="position" lowerBound="1"
+        eType="#//Position" containment="true"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="connectionmodule" upperBound="-1"
+        eType="#//ConnectionModule" containment="true"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EEnum" name="Status">
+    <eLiterals name="GOOD"/>
+    <eLiterals name="WARNING" value="1"/>
+    <eLiterals name="CRITICAL" value="2"/>
+  </eClassifiers>
+  <eClassifiers xsi:type="ecore:EClass" name="Component" abstract="true">
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="name" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="status" lowerBound="1"
+        eType="#//Status"/>
+    <eStructuralFeatures xsi:type="ecore:EAttribute" name="topic" lowerBound="1" eType="ecore:EDataType http://www.eclipse.org/emf/2002/Ecore#//EString"/>
+    <eStructuralFeatures xsi:type="ecore:EReference" name="function" upperBound="-1"
+        eType="#//Function" containment="true"/>
+  </eClassifiers>
+</ecore:EPackage>
